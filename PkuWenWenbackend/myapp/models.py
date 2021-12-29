@@ -20,6 +20,23 @@ class Patient(models.Model):
     def __str__(self):
         return self.realName
 
+# 发热病人
+class FeverPatient(models.Model):
+    # 默认生成一个名为id的自增列，该id为主键
+    # userName不可变
+    userName = models.CharField(max_length=32,unique=True)
+    password = models.CharField(max_length=50,default='x')
+    email = models.CharField(max_length=32,default="未注册")
+
+    realName = models.CharField(max_length=32,default='x')
+    gender = models.CharField(max_length=2,default='x')
+    birthday = models.DateField(null=True)
+    idCardNumber = models.CharField(max_length=18,unique=True,default='x')
+    phoneNumber = models.CharField(max_length=11,unique=True,default='x')
+    
+    def __str__(self):
+        return self.realName
+
 
 # 医生类
 class Doctor(models.Model):
